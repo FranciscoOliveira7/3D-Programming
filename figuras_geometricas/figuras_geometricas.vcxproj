@@ -24,6 +24,7 @@
     <ProjectGuid>{ffd355c6-f8e2-47a7-ae7d-f117c4ed253c}</ProjectGuid>
     <RootNamespace>figurasgeometricas</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ex2_figuras_geometricas</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

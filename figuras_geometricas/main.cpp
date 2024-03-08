@@ -15,5 +15,7 @@ int main() {
 
 	r3 = r1 + r2;
 
+	r3.Print();
+
 	return 0;
 }

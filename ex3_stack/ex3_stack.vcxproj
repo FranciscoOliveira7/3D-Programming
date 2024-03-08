@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{ecbc05e8-accd-4494-acea-d5bc7bec92e6}</ProjectGuid>
-    <RootNamespace>spacegame</RootNamespace>
+    <ProjectGuid>{b5656d18-dd34-4a02-a5aa-7ac027994328}</ProjectGuid>
+    <RootNamespace>ex3stack</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>ex1_space_game</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,8 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="collision_box.h" />
-    <ClInclude Include="rectangle.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="stack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
