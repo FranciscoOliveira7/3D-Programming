@@ -17,7 +17,9 @@ namespace geometric_figure {
 
 	class Rectangle : public GeometricFigure {
 	public:
-		Rectangle(int, int);
+		Rectangle(int w = 0, int h = 0) : width_{ w }, height_{ h } {
+			std::cout << "Rectangle Created\n";
+		}
 		~Rectangle();
 		void Print();
 		float Perimeter();
@@ -30,7 +32,9 @@ namespace geometric_figure {
 
 	class Circle : public GeometricFigure {
 	public:
-		Circle(int);
+		Circle(int r = 0) : radius_{ r } {
+			std::cout << "Circle Created\n";
+		}
 		~Circle();
 		void Print();
 		float Perimeter();

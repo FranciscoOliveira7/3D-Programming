@@ -4,9 +4,6 @@ namespace geometric_figure {
 
 	// Rectangle
 
-	Rectangle::Rectangle(int w = 0, int h = 0) : width_{ w }, height_{ h } {
-		std::cout << "Rectangle Created\n";
-	}
 	Rectangle::~Rectangle() {
 		std::cout << "Rectangle Destroyed\n";
 	}
@@ -30,9 +27,6 @@ namespace geometric_figure {
 
 	// Circle
 
-	Circle::Circle(int r = 0) : radius_{ r } {
-		std::cout << "Circle Created\n";
-	}
 	Circle::~Circle() {
 		std::cout << "Circle Destroyed\n";
 	}
