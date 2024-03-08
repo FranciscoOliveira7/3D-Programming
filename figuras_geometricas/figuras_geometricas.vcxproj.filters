@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="figura_geometrica.cpp" />
+    <ClCompile Include="geometric_figure.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="figura_geometrica.h" />
+    <ClInclude Include="geometric_figure.h" />
   </ItemGroup>
 </Project>
