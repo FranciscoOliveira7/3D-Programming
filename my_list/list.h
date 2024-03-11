@@ -5,7 +5,7 @@
 namespace my_list {
 
 	template <class T> class List {
-		T value_;
+		T count_;
 		List<T>* next_;
 		int size_ = 0;
 
@@ -17,7 +17,7 @@ namespace my_list {
 		T operator[](int);
 	};
 
-	template <class T> List<T>::List() : next_{ nullptr } {
+	template <class T> List<T>::List() : count_{}, next_ { nullptr } {
 		std::cout << "List created\n";
 	}
 	template <class T> List<T>::~List() {
@@ -25,23 +25,24 @@ namespace my_list {
 	}
 
 	template <class T> void List<T>::Add(T item) {
-		List<T> last_item;
+		List<T> *last_item = this;
 		
 		// Find last index;
-		while (last_item.next_ != nullptr) last_item = *(last_item.next_);
+		while (last_item != nullptr) last_item = last_item->next_;
 
-		last_item.next_ = new List<T>();
+		last_item = new List<T>();
 
-		last_item.next_->value_ = item;
-
+		last_item->count_ = item;
+		count_++;
 	}
+
 	template<class T> T List<T>::operator[](int index) {
-		List<T> item;
+		List<T> *item = this;
 
 		for (int i = 0; i < index; i++) {
-			item = *(item.next_);
+			item = item->next_;
 		}
 
-		return item.value_;
+		return item->count_;
 	}
 }
