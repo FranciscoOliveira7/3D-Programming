@@ -41,7 +41,7 @@ namespace stack {
 		T value{};
 
 		if (size_ > 0) {
-			value = [--size_];
+			value = values_[--size_];
 		}
 
 		return value;
