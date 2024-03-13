@@ -7,5 +7,7 @@ int main() {
 
 	list.Add(2);
 
-	std::cout << list[1] << std::endl;
+	std::cout << list[0] << std::endl;
+
+	return 0;
 }
