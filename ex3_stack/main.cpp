@@ -4,8 +4,6 @@
 using namespace stack;
 
 int main() {
-
-	Soma<int, float>(2, 2);
 	Stack<float> stack = Stack<float>(3);
 	Stack<std::string> sstack = Stack<std::string>(2);
 
