@@ -1,6 +1,10 @@
 #pragma once
 
+#include <vector>
+#include <algorithm>
 #include "card.h"
+
+using namespace std;
 
 class Deck
 {
@@ -10,4 +14,5 @@ public:
 
 private:
 	Card cards[52];
+	vector<Card> GiveDeck(int quantity);
 };
