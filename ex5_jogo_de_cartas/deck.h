@@ -6,8 +6,7 @@
 
 using namespace std;
 
-class Deck
-{
+class Deck {
 public:
 	Deck();
 	~Deck();
