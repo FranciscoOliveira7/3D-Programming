@@ -14,7 +14,7 @@
 using namespace glm;
 
 void init(void);
-void display(void);
+void display(GLfloat&);
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -34,7 +34,7 @@ int main(void) {
 
 	init();
 
-	GLfloat angle = 0;
+	GLfloat angle = 0.0f;
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT);
@@ -53,7 +53,7 @@ void init(void) {
 	//glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-void display(GLfloat angle) {
+void display(GLfloat &angle) {
 	// Desenha triangulo em modo imediato
 	glBegin(GL_TRIANGLES);
 	vec3 verteces[6 * 4] = {
@@ -92,14 +92,14 @@ void display(GLfloat angle) {
 	mat4 Projection = perspective(radians(45.0f), (float)WIDTH / HEIGHT, 5.0f, 20.0f);
 
 	mat4 View = lookAt(
-		vec3(0, 0, 10.0f),
+		vec3(0, 0, 10),
 		vec3(0, 0, 0),
 		vec3(0, 1, 0)
 	);
 
 	mat4 Model = mat4(1.0f);
 
-	Model = rotate(Model, angle += 0.001f, normalize(vec3(1.0f, 1.0f, 0.0f)));
+	Model = rotate(Model, angle += 0.0005f, normalize(vec3(1.0f, 1.0f, 0.0f)));
 
 	mat4 MVP = Projection * View * Model;
 
