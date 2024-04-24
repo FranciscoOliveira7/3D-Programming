@@ -41,9 +41,9 @@ int main(void)
 
     while (!glfwWindowShouldClose(window))
 	{
-		mat4 view = perspective(radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
+		mat4 projection = perspective(radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 		mat4 model = mat4(1.0f);
-		mat4 projection = lookAt(
+		mat4 view = lookAt(
 			vec3(0, 0, zoom),
 			vec3(0, 0, -1),
 			vec3(0, 1, 0)
@@ -69,7 +69,7 @@ void Draw(mat4 mvp, std::vector<vec3> model) {
 
 	glColor3f(1.0f, 1.0f, 1.0f);
 	
-	for (int i = 0; i < 6 * 4; i ++) {
+	for (int i = 0; i < 6 * 4; i++) {
 
 		vec4 vertex = vec4(model[i].x, model[i].y, model[i].z, 1.0f);
 		vec4 transformed_vertex = mvp * vertex;
