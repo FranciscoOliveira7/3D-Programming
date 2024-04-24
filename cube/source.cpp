@@ -44,7 +44,7 @@ int main(void)
     while (!glfwWindowShouldClose(window))
 	{
 		mat4 model = mat4(1.0f);
-		model = rotate(model, rotation += 0.0001, vec3(1, .5, 0));
+		model = rotate(model, rotation += 0.005f, vec3(1, 1, 0));
 		mat4 view = lookAt(
 			vec3(0, 0, zoom),
 			vec3(0, 0, -1),
@@ -65,6 +65,8 @@ int main(void)
 
 void Draw(mat4 mvp, std::vector<vec3> model) {
 
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	vec3 colors[] = {
 		vec3(1, 0, 0), // red
 		vec3(0, 0, 1), // blue
@@ -74,16 +76,18 @@ void Draw(mat4 mvp, std::vector<vec3> model) {
 		vec3(1, 0, 1)  // magenta
 	};
 
-	glClear(GL_COLOR_BUFFER_BIT);
-
 	glBegin(GL_QUADS);
 	
 	for (int i = 0; i < 6 * 4; i++) {
-
 		glColor3f(colors[i / 4].r, colors[i / 4].g, colors[i / 4].b);
 		vec4 vertex = vec4(model[i].x, model[i].y, model[i].z, 1.0f);
 		vec4 transformed_vertex = mvp * vertex;
 		vec4 normalized_vertex = transformed_vertex / transformed_vertex.w;
+
+		// Silly Vertex warping idk
+		//normalized_vertex.x = trunc(normalized_vertex.x * 100) / 100;
+		//normalized_vertex.y = trunc(normalized_vertex.y * 100) / 100;
+		//normalized_vertex.z = trunc(normalized_vertex.z * 100) / 100;
 
 		glVertex3f(normalized_vertex.x, normalized_vertex.y, normalized_vertex.z);
 	}
