@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cube", "cube\cube.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glsl_only", "glsl_only\glsl_only.vcxproj", "{3651E12C-B992-498E-8847-9C312ADB9071}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cursor_glow", "mouse_glow\mouse_glow.vcxproj", "{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{3651E12C-B992-498E-8847-9C312ADB9071}.Release|x64.Build.0 = Release|x64
 		{3651E12C-B992-498E-8847-9C312ADB9071}.Release|x86.ActiveCfg = Release|Win32
 		{3651E12C-B992-498E-8847-9C312ADB9071}.Release|x86.Build.0 = Release|Win32
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Debug|x64.ActiveCfg = Debug|x64
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Debug|x64.Build.0 = Debug|x64
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Debug|x86.ActiveCfg = Debug|Win32
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Debug|x86.Build.0 = Debug|Win32
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Release|x64.ActiveCfg = Release|x64
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Release|x64.Build.0 = Release|x64
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Release|x86.ActiveCfg = Release|Win32
+		{9DCA80BE-4D92-4BCB-8788-FCACC2F7B453}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

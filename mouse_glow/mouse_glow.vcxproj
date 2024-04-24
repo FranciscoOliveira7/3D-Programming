@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{13a35a8d-1c56-494d-98cb-f8d1bb1e7c4a}</ProjectGuid>
-    <RootNamespace>cube</RootNamespace>
+    <ProjectGuid>{9dca80be-4d92-4bcb-8788-fcacc2f7b453}</ProjectGuid>
+    <RootNamespace>mouseglow</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>cursor_glow</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -127,14 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="load_shaders.cpp" />
     <ClCompile Include="source.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="glow.frag" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="load_shaders.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

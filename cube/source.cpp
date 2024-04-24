@@ -20,6 +20,17 @@ using namespace glm;
 
 std::vector<vec3> LoadModel(void);
 void Draw(mat4, std::vector<vec3>);
+void init(void);
+
+GLfloat zoom = 10.0f;
+
+void scrollCallBack(GLFWwindow* window, double xoffset, double yoffset) {
+	
+	if (yoffset == 1) zoom -= fabs(zoom) * 0.1f;
+	else if (yoffset == -1) zoom += fabs(zoom) * 0.1f;
+
+	std::cout << "Zoom = " << zoom << std::endl;
+}
 
 int main(void)
 {
@@ -36,8 +47,12 @@ int main(void)
 
     glfwMakeContextCurrent(window);
 
+	init();
+
+	glfwSetScrollCallback(window, scrollCallBack);
+
 	std::vector<vec3> cube = LoadModel();
-	float zoom = 10.0f, rotation = 0.0f;
+	float rotation = 0.0f;
 
 	mat4 projection = perspective(radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 
@@ -79,7 +94,8 @@ void Draw(mat4 mvp, std::vector<vec3> model) {
 	glBegin(GL_QUADS);
 	
 	for (int i = 0; i < 6 * 4; i++) {
-		glColor3f(colors[i / 4].r, colors[i / 4].g, colors[i / 4].b);
+		int color = i / 4;
+		glColor3f(colors[color].r, colors[color].g, colors[color].b);
 		vec4 vertex = vec4(model[i].x, model[i].y, model[i].z, 1.0f);
 		vec4 transformed_vertex = mvp * vertex;
 		vec4 normalized_vertex = transformed_vertex / transformed_vertex.w;
@@ -87,7 +103,6 @@ void Draw(mat4 mvp, std::vector<vec3> model) {
 		// Silly Vertex warping idk
 		//normalized_vertex.x = trunc(normalized_vertex.x * 100) / 100;
 		//normalized_vertex.y = trunc(normalized_vertex.y * 100) / 100;
-		//normalized_vertex.z = trunc(normalized_vertex.z * 100) / 100;
 
 		glVertex3f(normalized_vertex.x, normalized_vertex.y, normalized_vertex.z);
 	}
@@ -134,4 +149,11 @@ std::vector<vec3> LoadModel(void) {
 	for (auto i : point) ret.push_back(i);
 
 	return ret;
+}
+
+void init(void) {
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glEnable(GL_DEPTH_TEST);
+	// Descomentar para ativar o Face Culling
+	//glEnable(GL_CULL_FACE);
 }

@@ -2,12 +2,5 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source.cpp" />
-    <ClCompile Include="load_shaders.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="glow.frag" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="load_shaders.h" />
   </ItemGroup>
 </Project>
