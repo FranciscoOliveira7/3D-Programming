@@ -1,19 +1,17 @@
+#pragma comment(lib, "glew32s.lib")
 #pragma comment(lib, "glfw3.lib")
 #pragma comment(lib, "opengl32.lib")
 
 #include <iostream>
-#include <vector>
+using namespace std;
 
-#include <Windows.h>
-#include <gl\GL.h>
+#define GLEW_STATIC
+#include <GL\glew.h>
 
+#define GLFW_USE_DWM_SWAP_INTERVAL
 #include <GLFW\glfw3.h>
 
-#include <glm/glm.hpp> // vec3, vec4, ivec4, mat4, ...
-#include <glm/gtc/matrix_transform.hpp> // translate, rotate, scale, perspective, ...
-#include <glm/gtc/type_ptr.hpp> // value_ptr
-
-#include "load_shaders.h"
+#include "shader_util.h"
 
 int main(void)
 {

@@ -2,5 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="source.cpp" />
+    <ClCompile Include="shader_util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="shader_util.h" />
   </ItemGroup>
 </Project>
