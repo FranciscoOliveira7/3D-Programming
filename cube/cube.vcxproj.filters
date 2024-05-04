@@ -3,7 +3,4 @@
   <ItemGroup>
     <ClCompile Include="source.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="glow.frag" />
-  </ItemGroup>
 </Project>

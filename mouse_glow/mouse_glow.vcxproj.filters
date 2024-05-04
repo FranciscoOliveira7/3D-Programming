@@ -7,4 +7,8 @@
   <ItemGroup>
     <ClInclude Include="shader_util.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="glow.frag" />
+    <None Include="triangles.vert" />
+  </ItemGroup>
 </Project>
