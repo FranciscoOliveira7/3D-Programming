@@ -38,7 +38,7 @@ int main(void)
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Mouse Glow", NULL, NULL);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "Casinha", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -98,19 +98,30 @@ void init(void) {
 
 
     ShaderInfo shaders[] = {
-        { GL_VERTEX_SHADER, "triangles.vert" },
-        { GL_FRAGMENT_SHADER, "glow.frag" },
+        { GL_VERTEX_SHADER,   "triangles.vert" },
+        { GL_FRAGMENT_SHADER, "triangles.frag" },
         { GL_NONE, NULL }
     };
 
-    GLuint program = LoadShaders(shaders);
+    GLuint program = LoadShaders(shaders);  
     if (!program) exit(EXIT_FAILURE);
     glUseProgram(program);
 
-    float screenSize = sqrtf(HEIGHT * HEIGHT + WIDTH * WIDTH);
 
-    GLint screenSizeId = glGetProgramResourceLocation(program, GL_UNIFORM, "screen");
-    glProgramUniform1f(program, screenSizeId, screenSize);
+    // Ligar os atributos aos shaders
+
+    // Obtém a localização do atributo 'vPosition' no 'programa'.
+    GLint coordsId = glGetProgramResourceLocation(program, GL_PROGRAM_INPUT, "vPosition");
+    GLint coresId = glGetProgramResourceLocation(program, GL_PROGRAM_INPUT, "vColors");
+
+    glBindBuffer(GL_ARRAY_BUFFER, Buffers[0]);
+    glVertexAttribPointer(coordsId, 2, GL_FLOAT, GL_FALSE, 0, nullptr);
+
+    glBindBuffer(GL_ARRAY_BUFFER, Buffers[1]);
+    glVertexAttribPointer(coresId, 3, GL_FLOAT, GL_FALSE, 0, nullptr);
+
+    glEnableVertexAttribArray(coordsId);
+    glEnableVertexAttribArray(coresId);
 }
 
 void display(void) {
