@@ -21,11 +21,12 @@ void print_error(int error, const char* description);
 void init(void);
 void display(void);
 
-#define NumVAOs 1
-#define NumBuffers 2 // Vértices, Cores
+#define NumVAOs 2
+#define NumBuffers 3 // Vértices, Cores, EBO
 GLuint VAOs[NumVAOs];
 GLuint Buffers[NumBuffers];
-const GLuint NumVertices = 6;
+const GLuint NumVertices = 9;
+const GLuint NumIndices = 15;
 
 int main(void)
 {
@@ -71,14 +72,21 @@ int main(void)
 }
 
 void init(void) {
-    GLfloat vertices[NumVertices][2 /*xy*/] = {
-        { -0.90f, -0.90f }, { 0.85f, -0.90f }, { -0.90f,  0.85f }, // Triângulo 1
-        {  0.90f, -0.85f }, { 0.90f,  0.90f }, { -0.85f,  0.90f }  // Triângulo 2
+    GLfloat vertices[NumVertices][2] = {
+        { -0.5f, -0.9f }, { 0.5f, -0.9f }, { -0.5f,  0.1f }, { 0.5f,  0.1f },
+        {  0.0f,  0.4f },
+        { -0.3f, -0.9f }, { -0.1f, -0.9f }, { -0.3f, -0.5f }, { -0.1f, -0.5f }
     };
 
-    GLfloat cores[NumVertices][3 /*rgb*/] = {
-        { 1.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, { 0.0f, 0.0f, 1.0f }, // Triângulo 1
-        { 1.0f, 0.0f, 0.0f }, { 0.0f, 1.0f, 0.0f }, { 0.0f, 0.0f, 1.0f }  // Triângulo 2
+    GLfloat cores[NumVertices][3] = {
+        { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, // Branco
+        { 1.0f, 0.0f, 0.0f }, // Vermelho
+        { 0.59f, 0.29f, 0.0f }, { 0.59f, 0.29f, 0.0f }, { 0.59f, 0.29f, 0.0f }, { 0.59f, 0.29f, 0.0f } // Castanho
+    };
+
+    GLuint indices[NumIndices] = { 0, 1, 2, 1, 3, 2, // Parede
+        2, 3, 4, // Telhado
+        5, 6, 7, 6, 8, 7 // Porta
     };
 
     // VAO
@@ -87,14 +95,17 @@ void init(void) {
 
     // VBOs
     glGenBuffers(NumBuffers, Buffers);
-    for (int i = 0; i < NumBuffers; i++) {
+    for (int i = 0; i < NumBuffers - 1; i++) {
 
         glBindBuffer(GL_ARRAY_BUFFER, Buffers[i]);
         if (i == 0)
-            glBufferStorage(Buffers[i], sizeof(vertices) /*2 * 6 * sizeof(float)*/, vertices, 0);
-        else
-            glBufferStorage(Buffers[i], sizeof(cores) /*3 * 6 * sizeof(float)*/, cores, 0);
+            glBufferStorage(GL_ARRAY_BUFFER, sizeof(vertices) /*2 * 6 * sizeof(float)*/, vertices, 0);
+        else if (i == 1)
+            glBufferStorage(GL_ARRAY_BUFFER, sizeof(cores) /*3 * 6 * sizeof(float)*/, cores, 0);
     }
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Buffers[NumBuffers - 1]);
+    glBufferStorage(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, 0);
 
 
     ShaderInfo shaders[] = {
@@ -131,7 +142,10 @@ void display(void) {
     
 	glClearBufferfv(GL_COLOR, 0, black);
 
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    // Vincula (torna ativo) o VAO
+    glBindVertexArray(VAOs[0]);
+
+    glDrawElements(GL_TRIANGLES, NumIndices, GL_UNSIGNED_INT, (void *) 0);
 }
 
 void print_error(int error, const char* description) {

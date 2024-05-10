@@ -1,7 +1,7 @@
 #version 440 core
 
-layout( location = 0 ) in vec2 vPosition;
-layout( location = 1 ) in vec3 vColors;
+in vec2 vPosition;
+in vec3 vColors;
 
 out vec3 color;
 
