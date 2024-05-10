@@ -11,8 +11,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ex3_stack", "ex3_stack\ex3_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ex4_arraystrings", "ex4_arraystrings\ex4_arraystrings.vcxproj", "{670502D4-B3C5-4037-AF00-0A3624342600}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ex5_jogo_de_cartas", "ex5_jogo_de_cartas\ex5_jogo_de_cartas.vcxproj", "{F9C01A5D-4C05-4029-B625-54822D22D62E}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ler_ficheiro", "ler_ficheiro\ler_ficheiro.vcxproj", "{B3FB3A9D-6BD2-40F3-941F-422EF1FC0662}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLM-Matrix-Example", "GLM-Matrix-Example\GLM-Matrix-Example.vcxproj", "{455868E9-D4E7-4828-9AAC-FF0C1E2DAB15}"
@@ -75,14 +73,6 @@ Global
 		{670502D4-B3C5-4037-AF00-0A3624342600}.Release|x64.Build.0 = Release|x64
 		{670502D4-B3C5-4037-AF00-0A3624342600}.Release|x86.ActiveCfg = Release|Win32
 		{670502D4-B3C5-4037-AF00-0A3624342600}.Release|x86.Build.0 = Release|Win32
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Debug|x64.ActiveCfg = Debug|x64
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Debug|x64.Build.0 = Debug|x64
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Debug|x86.ActiveCfg = Debug|Win32
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Debug|x86.Build.0 = Debug|Win32
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Release|x64.ActiveCfg = Release|x64
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Release|x64.Build.0 = Release|x64
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Release|x86.ActiveCfg = Release|Win32
-		{F9C01A5D-4C05-4029-B625-54822D22D62E}.Release|x86.Build.0 = Release|Win32
 		{B3FB3A9D-6BD2-40F3-941F-422EF1FC0662}.Debug|x64.ActiveCfg = Debug|x64
 		{B3FB3A9D-6BD2-40F3-941F-422EF1FC0662}.Debug|x64.Build.0 = Debug|x64
 		{B3FB3A9D-6BD2-40F3-941F-422EF1FC0662}.Debug|x86.ActiveCfg = Debug|Win32

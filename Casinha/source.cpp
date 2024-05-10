@@ -11,7 +11,6 @@ using namespace std;
 #define GLFW_USE_DWM_SWAP_INTERVAL
 #include <GLFW\glfw3.h>
 
-#include <glm/glm.hpp> // vec3, vec4, ivec4, mat4, ...
 #include "shader_util.h"
 
 #define WIDTH 640
@@ -28,25 +27,19 @@ GLuint Buffers[NumBuffers];
 const GLuint NumVertices = 9;
 const GLuint NumIndices = 15;
 
-int main(void)
-{
+int main(void) {
     GLFWwindow* window;
 
     glfwSetErrorCallback(print_error);
 
-    /* Initialize the library */
-    if (!glfwInit())
-        return -1;
+    if (!glfwInit()) return -1;
 
-    /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(WIDTH, HEIGHT, "Casinha", NULL, NULL);
-    if (!window)
-    {
+    if (!window) {
         glfwTerminate();
         return -1;
     }
 
-    /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
     // Inicia o gestor de extensões GLEW
@@ -56,14 +49,12 @@ int main(void)
     init();
 
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
+    while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         display();
 
         glfwSwapBuffers(window);
-
         glfwPollEvents();
     }
 
